@@ -24,5 +24,15 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-///<reference types="cypress"/>
-///<reference types="cypress-xpath"/> 
+///<reference types="cypress" />
+///<reference types="cypress-xpath" />
+
+
+Cypress.Commands.add('getFrame', (iframe)=>{
+                       return cy.get(iframe)
+                        .its('0.contentDocumennt.body')
+                        .should('be.visible')
+                        .then(cy.wrap)
+}
+
+)
